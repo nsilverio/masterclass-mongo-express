@@ -13,7 +13,7 @@ npm i express dotenv
 npm i -D nodemon
 ```
 4. Update scripts section on package.json 
-````
+```
 "scripts": {
     "start": "NODE_ENV=production node server",
     "dev": "nodemon server"
