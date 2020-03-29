@@ -6,7 +6,7 @@ npm init
 ```
 2. Install express and dotenv 
 ```
-npm i express dotenv
+npm i express dotenv morgan
 ```
 3. Install nodemon as dev dependency
 ```
