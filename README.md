@@ -12,10 +12,11 @@ npm init
    - Morgan: HTTP request logger middleware for node.js used to log morgan stream data
    - Mongoose: schema-based solution to model your application data
    - Colors: add colors to node.js console
-   - Slugify: slugify module for node.js,
+   - Slugify: slugify module for node.js
+   - Geocoder: geocoding library 
 
 ```
-npm i express dotenv morgan mongoose colors slugify
+npm i express dotenv morgan mongoose colors slugify node-geocoder
 ```
 
 3. Install nodemon as dev dependency
