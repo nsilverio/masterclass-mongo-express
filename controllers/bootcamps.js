@@ -122,7 +122,7 @@ exports.updateBootcamp = asyncHandler(async (req, res, next) => {
 })
 
 // @desc    Delete a bootcamp
-// @route   GET /api/v1/bootcamps/:id
+// @route   DELETE /api/v1/bootcamps/:id
 // @access  private
 exports.deleteBootcamp = asyncHandler(async (req, res, next) => {
     /* in order to trigger the cascade delete of courses when a bootcamp is delete the 
