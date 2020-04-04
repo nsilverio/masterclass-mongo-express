@@ -8,6 +8,7 @@ const {
     deleteCourse
 } = require('../controllers/courses')
 
+// when more than 1 url param is possible to the same route, mergeParams must to be set to true
 const router = express.Router({ mergeParams: true })
 
 router
