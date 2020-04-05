@@ -13,10 +13,11 @@ npm init
    - Mongoose: schema-based solution to model your application data
    - Colors: add colors to node.js console
    - Slugify: slugify module for node.js
-   - Geocoder: geocoding library 
+   - Geocoder: geocoding library
+   - File upload - express file sytem upload middleware
 
 ```
-npm i express dotenv morgan mongoose colors slugify node-geocoder
+npm i express dotenv morgan mongoose colors slugify node-geocoder express-fileupload
 ```
 
 3. Install nodemon as dev dependency
@@ -24,6 +25,8 @@ npm i express dotenv morgan mongoose colors slugify node-geocoder
 ```
 npm i -D nodemon
 ```
+
+s
 
 4. Update scripts section on package.json
 
