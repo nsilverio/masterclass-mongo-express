@@ -6,6 +6,7 @@ const fileUpload = require('express-fileUpload');
 const connectDB = require('./config/db')
 const errorHandler = require('./middleware/error')
 const path = require('path')
+
 // Load env vars 
 dotenv.config({ path: './config/config.env' });
 
@@ -15,6 +16,7 @@ connectDB();
 // Route files
 const bootcamps = require('./routes/bootcamps');
 const courses = require('./routes/courses');
+const auth = require('./routes/auth');
 
 // Initialize express instance
 const app = express();
@@ -35,6 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 // Mount routers
 app.use('/api/v1/bootcamps', bootcamps);
 app.use('/api/v1/courses', courses);
+app.use('/api/v1/auth', auth);
 
 
 // error hadler
