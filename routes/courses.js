@@ -12,6 +12,10 @@ const {
 const router = express.Router({ mergeParams: true })
 
 
+
+// add protection to routes where user needs to be authorized
+const { protect } = require('../middleware/auth')
+
 // Advanced results 
 const Course = require('../models/Course')
 const advancedResults = require('../middleware/advancedResults')
@@ -23,13 +27,13 @@ router
             path: 'bootcamp',
             select: 'name description'
         }), getCourses)
-    .post(createCourse)
+    .post(protect, createCourse)
 
 router
     .route('/:id')
     .get(getCourse)
-    .put(updateCourse)
-    .delete(deleteCourse)
+    .put(protect, updateCourse)
+    .delete(protect, deleteCourse)
 
 
 module.exports = router
