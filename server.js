@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const morgan = require('morgan');
 const colors = require('colors');
 const fileUpload = require('express-fileUpload');
+const cookieParser = require('cookie-parser');
 const connectDB = require('./config/db')
 const errorHandler = require('./middleware/error')
 const path = require('path')
@@ -16,13 +17,17 @@ connectDB();
 // Route files
 const bootcamps = require('./routes/bootcamps');
 const courses = require('./routes/courses');
-const auth = require('./routes/auth');
+const auth = require('./routes/auth')
 
 // Initialize express instance
 const app = express();
 
-// Body parse
+// Body parser
 app.use(express.json())
+
+// Cookie parser
+app.use(cookieParser())
+
 
 // Logs to console on dev env
 if (process.env.NODE_ENV === 'development') {
