@@ -15,9 +15,11 @@ npm init
    - Slugify: slugify module for node.js
    - Geocoder: geocoding library
    - File upload - express file sytem upload middleware
+   - JSON web token: is a compact URL-safe means of representing claims to be transferred between two parties
+   - Bcryptjs: encryption for passwords
 
 ```
-npm i express dotenv morgan mongoose colors slugify node-geocoder express-fileupload
+npm i express dotenv morgan mongoose colors slugify node-geocoder express-fileupload jsonwebtoken bcryptjs
 ```
 
 3. Install nodemon as dev dependency
