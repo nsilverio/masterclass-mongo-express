@@ -22,7 +22,7 @@ exports.protect = asyncHandler(async (req, res, next) => {
 
     // Make sure token exists
     if (!token) {
-        return next(new ErrorResponse('Not authorized to access this routea', 401));
+        return next(new ErrorResponse('Not authorized to access this route', 401));
     }
 
     try {
@@ -38,3 +38,13 @@ exports.protect = asyncHandler(async (req, res, next) => {
         return next(new ErrorResponse('Not authorized to access this route', 401));
     }
 });
+
+// Grant access to specifi roles
+exports.authorize = (...roles) => {
+    return (req, res, next) => {
+        if (!roles.includes(req.user.role)) {
+            return next(new ErrorResponse(`User role ${req.user.role} not authorized to access this route`, 403));
+        }
+        next()
+    }
+}
