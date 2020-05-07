@@ -4,7 +4,7 @@ const CourseSchema = new mongoose.Schema({
     title: {
         type: String,
         trim: true,
-        required: [true, 'Please add a course title']
+        required: [true, 'Please add a Course title']
     },
     description: {
         type: String,
@@ -35,10 +35,15 @@ const CourseSchema = new mongoose.Schema({
         type: mongoose.Schema.ObjectId,
         ref: 'Bootcamp',
         required: true
+    },
+    user: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User',
+        required: true
     }
 })
 
-// Static method to get the avg of course tuitions
+// Static method to get the avg of Course tuitions
 CourseSchema.statics.getAverageCost = async function (bootcampId) {
 
     const obj = await this.aggregate([
@@ -55,7 +60,7 @@ CourseSchema.statics.getAverageCost = async function (bootcampId) {
     console.log(` value of obj ${obj}`);
 
     try {
-        console.log(`Calculating average cost for bootcamp ${bootcampId} course ${this._id}`)
+        console.log(`Calculating average cost for bootcamp ${bootcampId} Course ${this._id}`)
         await this.model('Bootcamp').findByIdAndUpdate(
             bootcampId,
             obj[0]

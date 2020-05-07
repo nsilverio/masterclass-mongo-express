@@ -7,6 +7,9 @@ const cookieParser = require('cookie-parser')
 const connectDB = require('./config/db')
 const errorHandler = require('./middleware/error')
 const path = require('path')
+const mongoSanitize = require('express-mongo-sanitize')
+const helmet = require('helmet')
+const xss = require('xss-clean')
 
 // Load env vars 
 dotenv.config({ path: './config/config.env' });
@@ -15,9 +18,11 @@ dotenv.config({ path: './config/config.env' });
 connectDB();
 
 // Route files
-const bootcamps = require('./routes/bootcamps');
-const courses = require('./routes/courses');
+const bootcamps = require('./routes/bootcamps')
+const courses = require('./routes/courses')
 const auth = require('./routes/auth')
+const users = require('./routes/users')
+const reviews = require('./routes/reviews')
 
 // Initialize express instance
 const app = express();
@@ -39,10 +44,21 @@ app.use(fileUpload())
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')))
 
+// sanitize data & prevent noSQL injection
+app.use(mongoSanitize())
+
+// set security headers
+app.use(helmet())
+
+// prevent XSS attacks
+app.use(xss())
+
 // Mount routers
-app.use('/api/v1/bootcamps', bootcamps);
-app.use('/api/v1/courses', courses);
-app.use('/api/v1/auth', auth);
+app.use('/api/v1/bootcamps', bootcamps)
+app.use('/api/v1/courses', courses)
+app.use('/api/v1/auth', auth)
+app.use('/api/v1/auth/users', users)
+app.use('/api/v1/reviews', reviews)
 
 
 // error hadler

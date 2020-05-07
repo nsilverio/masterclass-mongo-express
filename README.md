@@ -18,9 +18,13 @@ npm init
    - JSON web token: is a compact URL-safe means of representing claims to be transferred between two parties
    - Bcryptjs: encryption for passwords
    - Cookie parser: Parse Cookie header and populate req.cookies with an object keyed by the cookie names
+   - Nodemailer : node.js module to send emails
+   - Express mongo sanitize: prevent noSQL injections
+   - Helmet: secure Express apps by setting various HTTP headers
+   - XSS-clean: sanitize user input coming from POST body, GET queries, and url params
 
 ```
-npm i express dotenv morgan mongoose colors slugify node-geocoder express-fileupload jsonwebtoken bcryptjs cookie-parser
+npm i express dotenv morgan mongoose colors slugify node-geocoder express-fileupload jsonwebtoken bcryptjs cookie-parser nodemailer express-mongo-sanitize helmet xss-clean
 ```
 
 3. Install nodemon as dev dependency
